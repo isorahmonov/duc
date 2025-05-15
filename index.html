@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung Duc</title>
+    <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+
+    /* Make the image round with animation */
+    .round-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #64bd1b;
+      box-shadow: 0 0 20px rgba(100, 189, 27, 0.5);
+      margin-bottom: 25px;
+      object-fit: cover;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    
+    .round-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(100, 189, 27, 0.8);
+    }
+
+    /* Main container for content */
+    .content {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease;
+    }
+
+    /* Container for all links */
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    /* Style for all buttons */
+    .social-button {
+      background-color: #444544;
+      color: white;
+      padding: 14px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 280px;
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .social-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(100, 189, 27, 0.4), transparent);
+      transition: 0.5s;
+    }
+    
+    .social-button:hover {
+      background-color: #64bd1b;
+      box-shadow: 0 6px 12px rgba(100, 189, 27, 0.3);
+      transform: translateY(-2px);
+    }
+    
+    .social-button:hover::before {
+      left: 100%;
+    }
+    
+    .box {
+        width: 100%;
+        max-width: 450px;
+        min-height: 600px;
+        background-color: #282828;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        color: white;
+        animation: slideUp 0.8s ease;
+        transition: box-shadow 0.3s ease;
+    }
+    
+    .box:hover {
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+    
+    .location {
+      color: #64bd1b;
+      font-size: 16px;
+      margin: 5px 0;
+      font-weight: 500;
+    }
+    
+    .description {
+      margin: 20px 0;
+      color: #b5b5b5;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    
+    h1 {
+      color: #ffffff;
+      font-size: 28px;
+      margin: 10px 0 5px;
+      font-weight: 600;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 480px) {
+      .box {
+        padding: 25px 20px;
+        min-height: auto;
+        border-radius: 10px;
+      }
+      
+      .round-image {
+        width: 150px;
+        height: 150px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .social-button {
+        padding: 12px 0;
+        max-width: 100%;
+      }
+      
+      .description {
+        font-size: 14px;
+        margin: 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+      <div class="content">
+        <img src="ich.jpg" class="round-image" alt="Trung Duc">
+        <h1>Trung Duc</h1>
+        <p class="location">Kiel, Germany</p>
+        <p class="description">"Front-end developer and student at FH Kiel."</p>
+        
+        <div class="links-container">
+          <a href="https://www.instagram.com/tducc.07?igsh=MTRhOXA3ODAyODNyag==" class="social-button" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/share/194UPLXfz8/?mibextid=wwXIfr" class="social-button" target="_blank">Facebook</a>
+          <a href="https://wa.me/+49 170 7419101" class="social-button" target="_blank">Whatsapp</a>
+          <a href="mailto:trungduc110705@gmail.com" class="social-button" target="_blank">E-Mail</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for all buttons -->
+    <script>
+        // Find all buttons
+        let buttons = document.querySelectorAll('.social-button');
+
+        // Add click event to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Show confirmation question
+                let answer = confirm("Are you sure you want to visit " + button.textContent + "?");
+                
+                // Prevent default if user cancels
+                if (!answer) {
+                    e.preventDefault();
+                }
+            });
+            
+            // Add ripple effect
+            button.addEventListener('mousedown', function(e) {
+                let x = e.pageX - this.getBoundingClientRect().left;
+                let y = e.pageY - this.getBoundingClientRect().top;
+                let ripple = document.createElement('span');
+                
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
